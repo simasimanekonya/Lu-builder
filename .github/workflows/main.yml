@@ -15,10 +15,14 @@ jobs:
       with:
         submodules: true  # サブモジュールを初期化
 
-    - name: Install dependencies
+    - name: 依存関係インストール
       run: |
         sudo apt update
         sudo apt install -y build-essential gcc-arm-none-eabi cmake git
+        git clone https://github.com/raspberrypi/pico-sdk.git
+        git clone https://github.com/simasimanekonya/Lite-unix-based-on-nuttix
+        git clone https://github.com/simasimanekonya/Lite-unix-based-on-nuttix-apps
+        export PICO_SDK_PATH=~/pico-sdk
 
     - name: Configure NuttX for Raspberry Pi Pico
       run: |
