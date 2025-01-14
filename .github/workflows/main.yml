@@ -20,13 +20,17 @@ jobs:
         sudo apt update
         sudo apt install -y build-essential gcc-arm-none-eabi cmake git
         git clone https://github.com/raspberrypi/pico-sdk.git
-        git clone https://github.com/simasimanekonya/Lite-unix-based-on-nuttix nuttix
+        git clone https://github.com/simasimanekonya/Lite-unix-based-on-nuttix nuttx
         git clone https://github.com/simasimanekonya/Lite-unix-based-on-nuttix-apps apps
         export PICO_SDK_PATH=~/pico-sdk
+        git clone https://github.com/tienson/kconfig.git
+        cd kconfig
+        make
+        sudo make install
 
     - name: Configure NuttX for Raspberry Pi Pico
       run: |
-        cd nuttix
+        cd ~/nuttix
         ln -s external/nya nya
         ./tools/configure.sh raspberrypi-pico:usbnsh
 
