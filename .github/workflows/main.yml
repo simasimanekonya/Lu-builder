@@ -1,0 +1,38 @@
+name: Build NuttX for Raspberry Pi Pico
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v3
+      with:
+        submodules: true  # サブモジュールを初期化
+
+    - name: Install dependencies
+      run: |
+        sudo apt update
+        sudo apt install -y build-essential gcc-arm-none-eabi cmake git
+
+    - name: Configure NuttX for Raspberry Pi Pico
+      run: |
+        cd Lite-unix-based-on-nuttix
+        ln -s external/nya nya
+        ./tools/configure.sh raspberrypi-pico:usbnsh
+
+    - name: Build NuttX
+      run: |
+        cd Lite-unix-based-on-nuttix
+        make
+
+    - name: Upload UF2 file
+      uses: actions/upload-artifact@v3
+      with:
+        name: nuttx-pico
+        path: Lite-unix-based-on-nuttix/nuttx.uf2
