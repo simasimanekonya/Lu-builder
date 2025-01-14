@@ -20,19 +20,19 @@ jobs:
         sudo apt update
         sudo apt install -y build-essential gcc-arm-none-eabi cmake git
         git clone https://github.com/raspberrypi/pico-sdk.git
-        git clone https://github.com/simasimanekonya/Lite-unix-based-on-nuttix
-        git clone https://github.com/simasimanekonya/Lite-unix-based-on-nuttix-apps
+        git clone https://github.com/simasimanekonya/Lite-unix-based-on-nuttix nuttix
+        git clone https://github.com/simasimanekonya/Lite-unix-based-on-nuttix-apps apps
         export PICO_SDK_PATH=~/pico-sdk
 
     - name: Configure NuttX for Raspberry Pi Pico
       run: |
-        cd Lite-unix-based-on-nuttix
+        cd nuttix
         ln -s external/nya nya
         ./tools/configure.sh raspberrypi-pico:usbnsh
 
     - name: Build NuttX
       run: |
-        cd Lite-unix-based-on-nuttix
+        cd nuttix
         make
 
     - name: Upload UF2 file
