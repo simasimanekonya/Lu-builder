@@ -19,7 +19,9 @@ jobs:
       run: |
         sudo apt update
         sudo apt install -y build-essential gcc-arm-none-eabi cmake git
-        sudo apt install bison flex gettext libncurses5-dev gperf automake libtool pkg-config
+        sudo add-apt-repository "deb http://archive.ubuntu.com/ubuntu/ xenial main universe"
+        sudo apt update
+        sudo apt install bison flex gettext libncurses5-dev gperf automake-1.15 libtool pkg-config
         git clone https://github.com/raspberrypi/pico-sdk.git
         export PICO_SDK_PATH=~/pico-sdk
         git clone https://bitbucket.org/nuttx/tools.git
