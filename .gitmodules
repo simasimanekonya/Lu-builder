@@ -1,3 +1,9 @@
 [submodule "pico-sdk"]
   path = pico-sdk
   url = https://github.com/raspberrypi/pico-sdk.git
+[submodule "nuttx"]
+  path = nuttx
+  url = https://github.com/simasimanekonya/Lite-unix-based-on-nuttix.git
+[submodule "apps"]
+  path = apps
+  url = https://github.com/simasimanekonya/Lite-unix-based-on-nuttix-apps.git
