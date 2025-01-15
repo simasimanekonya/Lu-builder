@@ -35,18 +35,18 @@ jobs:
         make
         sudo make install
         sudo /sbin/ldconfig
-        git clone https://github.com/simasimanekonya/Lite-unix-based-on-nuttix nuttx
-        git clone https://github.com/simasimanekonya/Lite-unix-based-on-nuttix-apps apps
+        git clone https://github.com/simasimanekonya/Lite-unix-based-on-nuttix Lite-unix-based-on-nuttix
+        git clone https://github.com/simasimanekonya/Lite-unix-based-on-nuttix-apps Lite-unix-based-on-nuttix-apps
         ls
     - name: Configure NuttX for Raspberry Pi Pico
       run: |
-        cd nuttx
+        cd Lite-unix-based-on-nuttix
         ln -s external/nya nya
         ./tools/configure.sh raspberrypi-pico:usbnsh
 
     - name: Build NuttX
       run: |
-        cd nuttx
+        cd Lite-unix-based-on-nuttix
         make
 
     - name: Upload UF2 file
