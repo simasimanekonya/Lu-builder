@@ -25,6 +25,8 @@ jobs:
         sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys EF0F382A1A7B6500
         sudo apt update
         sudo apt install bison flex gettext libncurses5-dev gperf automake libtool pkg-config
+        sudo ln -s /usr/bin/aclocal /usr/bin/aclocal-1.15
+        sudo ln -s /usr/bin/automake /usr/bin/automake-1.15
         git clone https://github.com/raspberrypi/pico-sdk.git
         export PICO_SDK_PATH=~/pico-sdk
         git clone https://bitbucket.org/nuttx/tools.git
