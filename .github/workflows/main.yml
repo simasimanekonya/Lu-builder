@@ -37,6 +37,7 @@ jobs:
         sudo /sbin/ldconfig
         git clone https://github.com/simasimanekonya/Lite-unix-based-on-nuttix nuttx
         git clone https://github.com/simasimanekonya/Lite-unix-based-on-nuttix-apps apps
+        ls
     - name: Configure NuttX for Raspberry Pi Pico
       run: |
         cd nuttx
