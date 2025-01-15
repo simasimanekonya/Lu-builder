@@ -35,6 +35,9 @@ jobs:
         make
         sudo make install
         sudo /sbin/ldconfig
+        export LD_LIBRARY_PATH=/usr/local/lib:$LD_LIBRARY_PATH
+        export LD_RUN_PATH=/usr/local/lib:$LD_RUN_PATH
+        sudo ldconfig
         git clone https://github.com/simasimanekonya/Lite-unix-based-on-nuttix Lite-unix-based-on-nuttix
         git clone https://github.com/simasimanekonya/Lite-unix-based-on-nuttix-apps Lite-unix-based-on-nuttix-apps
         ls
