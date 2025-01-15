@@ -40,13 +40,13 @@ jobs:
         ls
     - name: Configure NuttX for Raspberry Pi Pico
       run: |
-        cd Lite-unix-based-on-nuttix
+        cd ~/Lite-unix-based-on-nuttix
         ln -s external/nya nya
         ./tools/configure.sh raspberrypi-pico:usbnsh
 
     - name: Build NuttX
       run: |
-        cd Lite-unix-based-on-nuttix
+        cd ~/Lite-unix-based-on-nuttix
         make
 
     - name: Upload UF2 file
