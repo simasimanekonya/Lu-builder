@@ -43,7 +43,7 @@ jobs:
         ls
     - name: Configure NuttX for Raspberry Pi Pico and Build
       run: |
-        cd Lite-unix-based-on-nuttix
+        cd ~/home/runner/work/Lite-unix-based-on-nuttix
         ln -s external/nya nya
         ./tools/configure.sh raspberrypi-pico:usbnsh
         make
